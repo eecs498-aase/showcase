@@ -15,7 +15,7 @@ Content-only PRs must pass path, ownership, schema, image, immutable-identity, a
 
 ## What checks cannot guarantee
 
-An ordinary PR may propose changes to the workflow itself. A passing status is **not** proof that a proposed validator or workflow is trustworthy. Required staff CODEOWNERS review, review dismissal on new commits, protected-main rules, and inspection of the changed paths are part of the design. Before approving a fork workflow run, staff should inspect any workflow changes. Do not enable privileged `pull_request_target` execution of student code.
+An ordinary PR may propose changes to the workflow itself. A passing status is **not** proof that a proposed validator or workflow is trustworthy. Required staff CODEOWNERS review, review dismissal on new commits, protected-main rules, and inspection of the changed paths are part of the design. The owner `@rushilkag` has a review bypass for owner-requested maintenance updates. Student PRs still receive staff review; required status checks remain enforced for the owner too. Before approving a fork workflow run, staff should inspect any workflow changes. Do not enable privileged `pull_request_target` execution of student code.
 
 Automated checks also cannot decide whether a project story is truthful, whether screenshots have publication permission, or whether a major revision is actually a different project. Staff makes those decisions. Enrollment verification stays private; only opted-in public identities appear in the registry.
 
