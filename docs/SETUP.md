@@ -20,14 +20,14 @@ The first trusted push bootstraps the validators and workflows. Keep student sub
 
 ## 3. Configure staff review
 
-The initial code owner is the existing organization administrator `@rushilkag`. Additional staff reviewers should be verified and added through a reviewed maintenance PR. An author cannot approve their own PR; a second code owner is needed for maintenance PRs authored by the sole code owner. Students contribute through forks; do not grant repository write access just to submit projects. Keep an active wildcard rule in `.github/CODEOWNERS` covering all files. A future staff team must actually exist and have write access.
+The initial code owner is the existing organization administrator `@rushilkag`. Additional staff reviewers should be verified and added through a reviewed maintenance PR. GitHub does not allow self-approval. The owner `@rushilkag` has an explicit review exception for maintainer updates, authorized by the repository owner. Student submissions continue to require staff review; required checks remain enforced for everyone. Students contribute through forks; do not grant repository write access just to submit projects. Keep an active wildcard rule in `.github/CODEOWNERS` covering all files. A future staff team must actually exist and have write access.
 
 Create a ruleset or branch protection for `main`:
 
 1. Require pull requests and at least one approving staff code-owner review.
 2. Dismiss stale approvals after new commits; require approval of the most recent reviewable push.
 3. Require **Showcase submission validation** and require branches to be up to date before merging. Open a harmless bootstrap documentation PR if GitHub needs to observe the check before it is selectable.
-4. Restrict direct pushes, force pushes, and deletion. Apply the rules to maintainers as well; do not leave routine bypass access enabled.
+4. Restrict direct pushes, force pushes, and deletion. Apply the rules to administrators as well. The only review bypass is `@rushilkag` for owner-requested maintenance; do not add students or automation accounts. This exception does not waive required status checks.
 5. Keep the merge queue disabled for now. This implementation does not yet validate `merge_group` events.
 
 Review the changed-file list before accepting a green check. A PR can propose modifications to its own `pull_request` workflow. The workflow's trusted-base validator helps for ordinary content PRs; it does not remove the need to protect and review workflow files themselves.

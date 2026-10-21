@@ -64,7 +64,7 @@
       card.hidden=!matches;if(matches)visible++;
     });
     const active=Object.values(fields).some(input=>Boolean(input.value.trim()));
-    if(counter)counter.textContent=`${visible} ${isDemo?'sample ':''}project${visible===1?'':'s'}${active?` of ${cards.length}`:''} / ${active?'FILTERED COLLECTION':(isDemo?'A PREVIEW OF WHAT’S POSSIBLE':'THE FULL COLLECTION')}`;
+    if(counter)counter.textContent=`${visible} ${isDemo?'sample ':''}project${visible===1?'':'s'}${active?` of ${cards.length}`:''}`;
     if(empty)empty.hidden=visible!==0;if(clear)clear.hidden=!active;
     if(updateURL){const url=new URL(location.href);Object.entries(fields).forEach(([key,input])=>{const value=input.value.trim();if(value)url.searchParams.set(key,value);else url.searchParams.delete(key);});history.replaceState(null,'',url);}
   }

@@ -48,7 +48,7 @@ The frontend retains the experimental course design: Anton headlines, Newsreader
 
 ## Administration
 
-[The repository and Pages setup guide](docs/SETUP.md) documents the required settings. The initial code owner is `@rushilkag`. Every PR requires staff approval and a passing, up-to-date submission check. Only protected `main` deploys, and the `SHOWCASE_PUBLISH_ENABLED` repository variable controls publication. Keep the protections active; the variable alone is not a security boundary.
+[The repository and Pages setup guide](docs/SETUP.md) documents the required settings. The initial code owner is `@rushilkag`. Student PRs require staff approval and a passing, up-to-date submission check. The repository owner has a review exception for maintainer updates; required checks still apply. Only protected `main` deploys, and the `SHOWCASE_PUBLISH_ENABLED` repository variable controls publication. Keep the protections active; the variable alone is not a security boundary.
 
 - [Student submission guide](docs/SUBMITTING.md)
 - [Staff operations, withdrawals, and rollback](docs/OPERATIONS.md)
