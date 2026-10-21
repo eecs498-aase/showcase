@@ -56,3 +56,5 @@ The frontend retains the experimental course design: Anton headlines, Newsreader
 - [Design proposal](docs/DESIGN.md)
 
 There is no application server, database, custom login, comments, or voting in this first version. The participant registry starts empty; fictional preview projects never enter production builds.
+
+This temporary documentation change exercises the required pull-request validation check during repository setup.
