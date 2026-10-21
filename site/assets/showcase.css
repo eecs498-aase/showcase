@@ -9,3 +9,39 @@
 .footer-replay{background:none;border:0;border-bottom:1px solid var(--ink);padding:0 0 3px;font-family:var(--mono);font-size:9px}
 
 #page:focus{outline:none}.piece-1{top:5%}.piece-2{top:18%}.piece-3{top:32%}
+
+/* A quieter exhibition, with the course site's mark and blueprint language. */
+:root{--ui:'Bricolage Grotesque','Avenir Next',sans-serif}
+.masthead{max-width:1280px;margin-inline:auto;padding-inline:0;width:calc(100% - 2*var(--gutter))}
+.wordmark{gap:10px;font-family:var(--ui);font-size:25px;letter-spacing:-.05em;font-weight:700}
+.wordmark img{width:38px;height:38px}.wordmark>span{font:inherit}
+.masthead-label{font-size:11px;text-transform:none}.masthead nav{gap:28px;font-size:11px}
+.hero-quiet{max-width:1440px;padding-top:45px;padding-bottom:48px;gap:6vw}
+.hero-quiet h1{font-size:clamp(80px,9.2vw,132px);margin:23px 0 25px}
+.hero-quiet .hero-bottom{display:block}.hero-quiet .hero-bottom p{font-size:25px;line-height:1.25;max-width:330px}
+.hero-quiet .hero-bottom .text-link{margin-top:22px}.hero-quiet .hero-exhibit{padding-bottom:16px}
+.hero-quiet .exhibit-stage{height:clamp(310px,32vw,450px)}.hero-quiet .exhibit-piece{width:70%}
+.hero-blueprint{padding:0!important;border:1px solid #324252;background:#0a1322}
+.blueprint{background-image:linear-gradient(#c7d8f008 1px,transparent 1px),linear-gradient(90deg,#c7d8f008 1px,transparent 1px);background-size:28px 28px}
+.blueprint-bar{display:flex;gap:6px;align-items:center;padding:14px 17px;border-bottom:1px solid #c7d8f025;font:10px var(--mono);color:#a9b6cb;background:#0e1a2e}
+.blueprint-bar i{width:6px;height:6px;border:1px solid #76849c;border-radius:50%}.blueprint-bar span{margin-left:auto}.blueprint svg{display:block;width:100%;height:auto}
+.gallery-quiet{max-width:1440px;padding-top:0;padding-bottom:52px}
+.gallery-quiet>.section-heading{border-top:1px solid var(--ink);padding-top:25px;margin:0 0 22px;align-items:center}
+.gallery-quiet .section-heading h2{font-family:var(--ui);font-size:40px;font-weight:600;letter-spacing:-.05em;line-height:1.1}
+.gallery-quiet .section-heading .heading-dot{color:var(--ink);-webkit-text-stroke:0}
+.gallery-term{font:10px var(--mono);color:#53616a}
+.gallery-quiet .gallery-controls{margin-top:0}.gallery-quiet .results-bar{padding-block:15px}
+.empty-quiet{display:flex;align-items:center;text-align:left;gap:22px;border-block:1px solid var(--line);padding:32px 0!important}
+.empty-quiet>span{font:32px var(--mono);margin:0}.empty-quiet h3{font:500 25px var(--ui);letter-spacing:-.03em;margin:0 0 7px}
+.empty-quiet p{font-size:20px;line-height:1.35;margin:0;max-width:none}.empty-quiet button{margin-left:auto;background:none;border:0;border-bottom:1px solid var(--ink);white-space:nowrap}
+.footer-compact{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:23px var(--gutter);border-top:1px solid var(--line);font:10px var(--mono)}
+.footer-compact>div{display:flex;gap:24px;align-items:center}.footer-course{line-height:1.7}.footer-course>span{opacity:.4;margin-inline:9px}.footer-replay{font-size:10px}
+.submit-quiet .submit-header{padding:10px 0 25px}.submit-quiet .submit-header h1{font-size:clamp(48px,6.5vw,88px);line-height:1.12;margin:18px 0;font-family:var(--ui);font-weight:600;letter-spacing:-.05em}
+.submit-quiet .submit-header h1 span{background:var(--maize);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 .06em}
+.submit-lede{font-size:25px;line-height:1.3}.submit-quiet .submit-grid{padding:20px 0 30px;gap:70px;grid-template-columns:1fr 2fr}
+.submit-quiet .repo-link{display:table;margin-top:23px}.submit-quiet .aside-note{max-width:250px;font-size:19px;line-height:1.4}
+.submit-quiet .submission-steps li{padding:20px 0 24px}.submit-quiet .submission-steps h2{font:600 26px var(--ui);letter-spacing:-.03em;margin-bottom:8px}.submit-quiet .submission-steps p{font-size:21px;line-height:1.35}
+.submission-details{max-width:780px;margin-left:auto;padding-bottom:50px}.submission-details details{border-top:1px solid var(--line);padding:19px 0}.submission-details summary{font:500 18px var(--ui);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:15px}.submission-details summary:after{content:'+';font-family:var(--mono)}.submission-details details[open] summary:after{content:'−'}.submission-details summary::-webkit-details-marker{display:none}.submission-details summary:focus-visible{outline:3px solid #3576ae;outline-offset:5px}.submission-details p{font-size:20px;line-height:1.45;max-width:650px;margin-top:14px}.full-guide{margin-top:20px}
+.story-section h2{font-family:var(--ui);font-size:32px;font-weight:600;letter-spacing:-.035em}.project-end{padding-block:20px}.project-end .button{background:none;color:var(--ink);border:0;padding-inline:0}
+@media(max-width:900px){.hero-quiet{gap:30px}.hero-quiet h1{font-size:10vw}.hero-quiet .hero-bottom p{font-size:23px}.hero-quiet .exhibit-stage{height:310px}.submit-quiet .submit-grid{gap:35px;grid-template-columns:1fr 1.6fr}}
+@media(max-width:650px){.masthead-label{font-size:10px;padding-left:13px}.wordmark{font-size:23px}.wordmark img{width:32px;height:32px}.hero-quiet{padding-top:28px;padding-bottom:30px}.hero-quiet h1{font-size:clamp(70px,21vw,115px);margin:20px 0}.hero-quiet .hero-bottom p{font-size:23px;max-width:300px}.hero-quiet .hero-bottom .text-link{margin-top:16px}.hero-quiet .hero-exhibit{margin-top:27px}.hero-quiet .exhibit-stage{height:clamp(300px,78vw,430px)}.hero-blueprint svg{max-height:235px}.gallery-quiet{padding-bottom:30px}.gallery-quiet .section-heading h2{font-size:33px}.gallery-term{font-size:9px}.empty-quiet{align-items:flex-start;gap:12px;flex-wrap:wrap;padding:25px 0!important}.empty-quiet>div{flex:1;min-width:180px}.empty-quiet h3{font-size:23px}.empty-quiet p{font-size:19px}.empty-quiet button{margin:8px 0 0 35px}.footer-compact{flex-wrap:wrap;gap:15px;font-size:9px;padding-block:20px}.footer-compact>div{gap:20px}.footer-replay{font-size:9px}.submit-quiet .submit-header h1{font-size:clamp(45px,10.5vw,65px)}.submit-lede{font-size:22px}.submit-quiet .submit-grid{display:block;padding-top:10px}.submit-quiet .submit-grid>aside{margin-bottom:30px}.submit-quiet .aside-note{max-width:310px}.submit-quiet .submission-steps h2{font-size:25px}.submit-quiet .submission-steps p{font-size:20px}.submission-details{padding-bottom:30px}.submission-details p{font-size:19px}}

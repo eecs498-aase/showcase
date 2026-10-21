@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="AASE mark">
+  <!-- AASE mark: maize tile, twin interlocked A's in ink blue.
+       Two A's up front; out loud we say "A two S E". -->
+  <rect width="120" height="120" rx="16" fill="#FFCB05"/>
+  <g stroke="#00274C" stroke-width="11" stroke-linecap="square" fill="none">
+    <path d="M 14 94 L 38 26 L 62 94"/>
+    <path d="M 23 68 L 53 68"/>
+    <path d="M 58 94 L 82 26 L 106 94"/>
+    <path d="M 67 68 L 97 68"/>
+  </g>
+</svg>
