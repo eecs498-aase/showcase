@@ -1,0 +1,9 @@
+{
+  "maxProjectsPerStudent": 3,
+  "quotaMode": "distinct-per-cohort",
+  "maxImageBytes": 1048576,
+  "maxImageDimension": 4096,
+  "categories": ["Developer tools", "Learning", "Everyday tools", "Research"],
+  "tools": ["Python", "TypeScript", "Codex", "Aider", "SQLite", "React", "Local models"],
+  "cohorts": ["f26"]
+}

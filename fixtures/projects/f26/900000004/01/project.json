@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-900000004-01",
+  "ownerId": 900000004,
+  "cohort": "f26",
+  "slot": "01",
+  "title": "Local Lens",
+  "summary": "Small models. Real questions. Results you can inspect.",
+  "category": "Research",
+  "tags": [
+    "Evaluation",
+    "Local AI"
+  ],
+  "tools": [
+    "Python",
+    "Local models"
+  ],
+  "cover": {
+    "src": "cover.webp",
+    "alt": "Illustrative Local Lens interface for this fictional project"
+  },
+  "screenshots": [
+    {
+      "src": "detail.webp",
+      "alt": "Detail of the fictional Local Lens workspace, labeled as a design preview"
+    }
+  ],
+  "story": {
+    "problem": "A single benchmark number hides the examples that a small model handles well or poorly.",
+    "built": "An evaluation desk for comparing local models on a compact set of practical tasks.",
+    "aiUse": "Local models answer the same prompts. A simple viewer keeps outputs beside the evaluation criteria.",
+    "humanDecisions": "I wrote the task set, recorded repeat runs, and inspected failures instead of relying only on a total score.",
+    "limitations": "This illustrative evaluation is small. Its results would not establish general model quality."
+  },
+  "links": {
+    "demo": null,
+    "video": null,
+    "source": null
+  }
+}

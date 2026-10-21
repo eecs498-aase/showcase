@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-900000001-01",
+  "ownerId": 900000001,
+  "cohort": "f26",
+  "slot": "01",
+  "title": "Patch Notes",
+  "summary": "A second set of eyes for your next pull request.",
+  "category": "Developer tools",
+  "tags": [
+    "Code review",
+    "Agents"
+  ],
+  "tools": [
+    "Python",
+    "Codex"
+  ],
+  "cover": {
+    "src": "cover.webp",
+    "alt": "Illustrative Patch Notes interface for this fictional project"
+  },
+  "screenshots": [
+    {
+      "src": "detail.webp",
+      "alt": "Detail of the fictional Patch Notes workspace, labeled as a design preview"
+    }
+  ],
+  "story": {
+    "problem": "Reviewing unfamiliar code is hard when the reason for a change is buried in the diff.",
+    "built": "A review workspace that places a plain-language explanation beside the lines that support it.",
+    "aiUse": "Codex helps draft a change summary from a bounded diff. Every claim links back to the source.",
+    "humanDecisions": "I designed the evidence format, limited what context reaches the model, and checked misleading summaries against small test cases.",
+    "limitations": "This sample illustrates small Python changes. It does not approve code or replace a human reviewer."
+  },
+  "links": {
+    "demo": null,
+    "video": null,
+    "source": null
+  }
+}

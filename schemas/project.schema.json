@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecs498-aase.github.io/showcase/schemas/project.schema.json",
+  "title": "AASE Showcase project submission",
+  "description": "The validator additionally checks trusted registration, ownership, path identity, project quota, withdrawals and local image bytes. Categories and tools must match policy/showcase.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "projectId", "ownerId", "cohort", "slot", "title", "summary", "category", "tags", "tools", "cover", "story", "links"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "projectId": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,15}-[1-9][0-9]{0,15}-(01|02|03)$" },
+    "ownerId": { "type": "integer", "minimum": 1, "maximum": 9007199254740991 },
+    "cohort": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,15}$" },
+    "slot": { "enum": ["01", "02", "03"] },
+    "title": { "$ref": "#/$defs/singleLine", "maxLength": 60 },
+    "summary": { "$ref": "#/$defs/singleLine", "maxLength": 160 },
+    "category": { "$ref": "#/$defs/singleLine", "maxLength": 60 },
+    "tags": { "type": "array", "maxItems": 3, "uniqueItems": true, "items": { "$ref": "#/$defs/singleLine", "maxLength": 30 } },
+    "tools": { "type": "array", "maxItems": 6, "uniqueItems": true, "items": { "$ref": "#/$defs/singleLine", "maxLength": 60 } },
+    "cover": { "$ref": "#/$defs/image" },
+    "screenshots": { "type": "array", "maxItems": 4, "items": { "$ref": "#/$defs/image" } },
+    "story": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problem", "built", "aiUse", "humanDecisions", "limitations"],
+      "properties": {
+        "problem": { "$ref": "#/$defs/storyText" },
+        "built": { "$ref": "#/$defs/storyText" },
+        "aiUse": { "$ref": "#/$defs/storyText" },
+        "humanDecisions": { "$ref": "#/$defs/storyText" },
+        "limitations": { "$ref": "#/$defs/storyText" }
+      }
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["demo", "video", "source"],
+      "properties": {
+        "demo": { "$ref": "#/$defs/optionalURL" },
+        "video": { "$ref": "#/$defs/optionalURL" },
+        "source": { "$ref": "#/$defs/optionalURL" }
+      }
+    }
+  },
+  "$defs": {
+    "singleLine": { "type": "string", "minLength": 1, "pattern": "^(?=.*\\S)[^\\u0000-\\u001f\\u007f]+$" },
+    "storyText": { "type": "string", "minLength": 1, "maxLength": 2000, "pattern": "^(?=[\\s\\S]*\\S)[^\\u0000-\\u0008\\u000b\\u000c\\u000e-\\u001f\\u007f]+$" },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["src", "alt"],
+      "properties": {
+        "src": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,59}\\.(png|jpe?g|webp)$" },
+        "alt": { "$ref": "#/$defs/singleLine", "maxLength": 240 }
+      }
+    },
+    "optionalURL": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "maxLength": 2048, "format": "uri", "pattern": "^https://[^\\s\\\\]+$", "description": "HTTPS only; credentials are forbidden by the repository validator." }
+      ]
+    }
+  }
+}

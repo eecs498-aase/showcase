@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist.previous/
+.build-*/
+.preview.log
+.preview.pid
+.DS_Store
+coverage/

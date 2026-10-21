@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-900000003-01",
+  "ownerId": 900000003,
+  "cohort": "f26",
+  "slot": "01",
+  "title": "Trace Agent",
+  "summary": "Follow the decisions between a prompt and a result.",
+  "category": "Developer tools",
+  "tags": [
+    "Observability",
+    "Agents"
+  ],
+  "tools": [
+    "Python",
+    "Codex"
+  ],
+  "cover": {
+    "src": "cover.webp",
+    "alt": "Illustrative Trace Agent interface for this fictional project"
+  },
+  "screenshots": [
+    {
+      "src": "detail.webp",
+      "alt": "Detail of the fictional Trace Agent workspace, labeled as a design preview"
+    }
+  ],
+  "story": {
+    "problem": "When an agent fails, the final answer rarely explains which earlier decision caused the problem.",
+    "built": "A trace viewer that lays out model calls, tool activity, retries, and approval gates.",
+    "aiUse": "An agent generates the execution trace. The viewer groups events without hiding the original records.",
+    "humanDecisions": "I designed the event schema and verified the timeline against deliberately failing runs.",
+    "limitations": "The sample handles one trace format. Imported logs need to be cleaned before they can be shared."
+  },
+  "links": {
+    "demo": null,
+    "video": null,
+    "source": null
+  }
+}

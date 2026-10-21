@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-900000002-01",
+  "ownerId": 900000002,
+  "cohort": "f26",
+  "slot": "01",
+  "title": "Office Hours",
+  "summary": "A little more guidance. A little less giving the answer away.",
+  "category": "Learning",
+  "tags": [
+    "Learning",
+    "Practice"
+  ],
+  "tools": [
+    "TypeScript",
+    "React",
+    "Codex"
+  ],
+  "cover": {
+    "src": "cover.webp",
+    "alt": "Illustrative Office Hours interface for this fictional project"
+  },
+  "screenshots": [
+    {
+      "src": "detail.webp",
+      "alt": "Detail of the fictional Office Hours workspace, labeled as a design preview"
+    }
+  ],
+  "story": {
+    "problem": "Students often need a useful next question rather than a complete worked solution.",
+    "built": "A practice companion that responds with a hint, a question, and a small check for understanding.",
+    "aiUse": "The model turns an instructor-written outline into progressively more specific hints.",
+    "humanDecisions": "I defined the hint ladder and reviewed examples where the model accidentally revealed a solution.",
+    "limitations": "This fictional project is a learning aid. It is not a course help channel or a grading system."
+  },
+  "links": {
+    "demo": null,
+    "video": null,
+    "source": null
+  }
+}

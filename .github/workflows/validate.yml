@@ -1,0 +1,107 @@
+name: Showcase validation
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: showcase-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  submission:
+    name: Showcase submission validation
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out trusted validation code
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          persist-credentials: false
+
+      - name: Check out the candidate merge as data
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          path: candidate
+          fetch-depth: 0
+          persist-credentials: false
+          submodules: false
+          lfs: false
+
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+
+      # Never run npm, candidate scripts, or candidate tests in this job.
+      # These shell instructions are also protected by required staff review.
+      # pull_request workflows themselves can be proposed in a PR: see SETUP.md.
+      - name: Classify changes and validate with trusted code
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          MERGE_SHA: ${{ github.sha }}
+          PR_AUTHOR_ID: ${{ github.event.pull_request.user.id }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { execFileSync } from 'node:child_process';
+          import { writeFileSync, appendFileSync } from 'node:fs';
+          import { resolve } from 'node:path';
+
+          const { BASE_SHA, MERGE_SHA, PR_AUTHOR_ID, RUNNER_TEMP, GITHUB_STEP_SUMMARY } = process.env;
+          if (![BASE_SHA, MERGE_SHA].every(sha => /^[a-f0-9]{40,64}$/.test(sha ?? '')) || !/^[1-9][0-9]*$/.test(PR_AUTHOR_ID ?? '')) {
+            throw new Error('Invalid GitHub event identity or commit metadata.');
+          }
+          // Disabling rename detection includes both old and new paths as D/A.
+          // NUL separation preserves unusual filenames so validation can reject them.
+          const changed = execFileSync('git', [
+            '-C', 'candidate', 'diff', '--no-ext-diff', '--no-textconv',
+            '--name-only', '--no-renames', '-z', BASE_SHA, MERGE_SHA, '--'
+          ], { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 }).split('\0').filter(Boolean);
+          const projectChanges = changed.filter(path => path.startsWith('projects/'));
+          const maintenanceChanges = changed.filter(path => !path.startsWith('projects/'));
+          if (projectChanges.length && maintenanceChanges.length) {
+            throw new Error('Keep project submissions and staff maintenance in separate PRs. A project PR may change only its project data and raster images.');
+          }
+          const pathsFile = resolve(RUNNER_TEMP, 'showcase-changed-files.json');
+          writeFileSync(pathsFile, JSON.stringify(changed));
+          const args = [
+            resolve('trusted/scripts/validate.mjs'),
+            '--root', resolve('candidate'), '--base-root', resolve('trusted')
+          ];
+          if (projectChanges.length) {
+            args.push('--author-id', PR_AUTHOR_ID, '--changed-files', pathsFile);
+          }
+          execFileSync(process.execPath, args, { stdio: 'inherit' });
+          appendFileSync(GITHUB_STEP_SUMMARY, projectChanges.length
+            ? 'Project data passed trusted-base schema, ownership, and quota validation. Required staff review is still needed.\n'
+            : 'Maintenance-only PR: existing project data passed validation against trusted base policy. No proposed code was executed. Staff must review all changed infrastructure and run its tests locally before merge.\n');
+          NODE
+
+  main-integrity:
+    name: Showcase main integrity
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run validate
+      - run: npm run build:demo

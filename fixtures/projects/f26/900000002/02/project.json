@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-900000002-02",
+  "ownerId": 900000002,
+  "cohort": "f26",
+  "slot": "02",
+  "title": "Tiny Tasks",
+  "summary": "Make a big, vague task small enough to start.",
+  "category": "Everyday tools",
+  "tags": [
+    "Planning",
+    "Productivity"
+  ],
+  "tools": [
+    "TypeScript",
+    "SQLite",
+    "Aider"
+  ],
+  "cover": {
+    "src": "cover.webp",
+    "alt": "Illustrative Tiny Tasks interface for this fictional project"
+  },
+  "screenshots": [
+    {
+      "src": "detail.webp",
+      "alt": "Detail of the fictional Tiny Tasks workspace, labeled as a design preview"
+    }
+  ],
+  "story": {
+    "problem": "An item like finish the project does not tell you what to do next.",
+    "built": "A quiet planning board that turns a broad goal into a few editable next actions.",
+    "aiUse": "Aider helped implement the interface. A model suggests task breakdowns that the user can rewrite.",
+    "humanDecisions": "I kept the user in control of the plan, added an undo path, and tested that edits preserve task order.",
+    "limitations": "Suggestions do not understand your real schedule. Dates and commitments always stay with the user."
+  },
+  "links": {
+    "demo": null,
+    "video": null,
+    "source": null
+  }
+}

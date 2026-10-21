@@ -1,0 +1,29 @@
+{
+  "cohort": "f26",
+  "participants": [
+    {
+      "id": 900000001,
+      "displayName": "Maya Chen",
+      "bio": "Fictional maker profile. Interested in tools that make software easier to understand.",
+      "github": null
+    },
+    {
+      "id": 900000002,
+      "displayName": "Theo Park",
+      "bio": "Fictional maker profile. Exploring useful interfaces for everyday problems.",
+      "github": null
+    },
+    {
+      "id": 900000003,
+      "displayName": "Jules Rivera",
+      "bio": "Fictional maker profile. Making the reasoning behind an agent visible.",
+      "github": null
+    },
+    {
+      "id": 900000004,
+      "displayName": "Sam Okafor",
+      "bio": "Fictional maker profile. Building with small models and a curious mind.",
+      "github": null
+    }
+  ]
+}

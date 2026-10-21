@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-12345678-01",
+  "ownerId": 12345678,
+  "cohort": "f26",
+  "slot": "01",
+  "title": "Your project title",
+  "summary": "Explain what your project does and who it helps in one sentence.",
+  "category": "Developer tools",
+  "tags": ["Your topic"],
+  "tools": ["Python", "Codex"],
+  "cover": {
+    "src": "cover.png",
+    "alt": "Describe what a visitor can see in your project screenshot."
+  },
+  "screenshots": [],
+  "story": {
+    "problem": "What problem were you trying to solve, and for whom?",
+    "built": "What did you build? Describe the parts that work today.",
+    "aiUse": "How did you use AI while building or within the project itself?",
+    "humanDecisions": "Which decisions did you make, and how did you check the results?",
+    "limitations": "What remains incomplete or unreliable? What should a visitor know before trying it?"
+  },
+  "links": {
+    "demo": null,
+    "video": null,
+    "source": null
+  }
+}

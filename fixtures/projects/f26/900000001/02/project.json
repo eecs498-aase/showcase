@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-900000001-02",
+  "ownerId": 900000001,
+  "cohort": "f26",
+  "slot": "02",
+  "title": "Field Notes",
+  "summary": "Turn scattered reading into a connected trail of ideas.",
+  "category": "Research",
+  "tags": [
+    "Research",
+    "Knowledge"
+  ],
+  "tools": [
+    "Python",
+    "SQLite",
+    "Local models"
+  ],
+  "cover": {
+    "src": "cover.webp",
+    "alt": "Illustrative Field Notes interface for this fictional project"
+  },
+  "screenshots": [
+    {
+      "src": "detail.webp",
+      "alt": "Detail of the fictional Field Notes workspace, labeled as a design preview"
+    }
+  ],
+  "story": {
+    "problem": "Research notes accumulate faster than we can reconnect them to their original sources.",
+    "built": "A local notebook that groups related passages and keeps citations attached to every summary.",
+    "aiUse": "A small model suggests themes from a selected collection. The source passage stays one click away.",
+    "humanDecisions": "I chose a local storage model, made provenance visible, and tested whether suggestions remain tied to the supplied text.",
+    "limitations": "This example uses a small curated collection. Suggested connections may still need correction."
+  },
+  "links": {
+    "demo": null,
+    "video": null,
+    "source": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "aase-showcase",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "build:demo": "node scripts/build.mjs --demo",
+    "build:production": "node scripts/build.mjs --production",
+    "preview": "node scripts/serve.mjs"
+  },
+  "dependencies": { "sharp": "0.35.5" }
+}
