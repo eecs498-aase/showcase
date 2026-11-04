@@ -1,1 +1,11 @@
-{ "cohort": "f26", "participants": [] }
+{
+  "cohort": "f26",
+  "participants": [
+    {
+      "id": 119368245,
+      "displayName": "Sawyer Smith",
+      "bio": "",
+      "github": null
+    }
+  ]
+}
