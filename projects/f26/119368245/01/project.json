@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-119368245-01",
+  "ownerId": 119368245,
+  "cohort": "f26",
+  "slot": "01",
+  "title": "4square: a four-screen desk clock on a custom board",
+  "summary": "A desk clock with four small OLED screens on my own 74 mm circuit board, plus room sensors, a stopwatch and firmware that checks every screen before it ships.",
+  "category": "Everyday tools",
+  "tags": [
+    "Hardware",
+    "ESP32",
+    "PCB design"
+  ],
+  "tools": [
+    "Python"
+  ],
+  "cover": {
+    "src": "cover.webp",
+    "alt": "The finished 4square clock on a desk: a black printed case with four small blue OLED screens showing 9, 56, THU and AUG 20."
+  },
+  "screenshots": [
+    {
+      "src": "board-in-case.webp",
+      "alt": "The back of the clock with the cover off, showing my green custom circuit board seated in the printed case with its resistors, chips and coin cell holder."
+    },
+    {
+      "src": "exploded-render.webp",
+      "alt": "Exploded render of the case: front shell, the four screens, the circuit board, a middle plate, the clear acrylic back and the four screws."
+    },
+    {
+      "src": "acrylic-back-render.webp",
+      "alt": "Render of the laser-cut acrylic back panel with finger notches, vent slots, and SAWYER SMITH and 4SQUARE V1 engraved in the board's own silkscreen font."
+    },
+    {
+      "src": "hand-wired-prototype.webp",
+      "alt": "The first hand-wired prototype: four OLED screens in an early printed front, with loose jumper wires running to a microcontroller on the desk."
+    }
+  ],
+  "story": {
+    "problem": "I wanted a desk clock I could read from across the room, and one I had built all the way down instead of assembling a kit around someone else's board. My first version was four 0.96 inch OLED screens hand-wired to an ESP32-C3 SuperMini on a protoboard. It worked, but the wiring was fragile, there was nowhere to put sensors, and small OLEDs burn in when the same digits stay lit for months. The project became turning that prototype into a finished object that would last.",
+    "built": "4square is a 74 x 74 mm two-layer circuit board I designed, with the four screens on the front and everything else on the back, where it shows through a clear panel. The board carries an ESP32-C3 SuperMini, a DS3231 real-time clock with a coin cell, an SHT31 temperature and humidity sensor, a light sensor for auto-dimming, three RGB status LEDs, four buttons and an EEPROM that keeps settings through a reflash. JLCPCB made the board and did part of the assembly. The case is a printed PETG shell with a laser-cut acrylic back engraved in the board's own silkscreen font. The firmware has clock faces, a readings page, a stopwatch, animations, and a settings page with a nightly screens-off window. Every pixel goes through one function that applies a burn-in shift and a brightness cap. A layout prover running on my PC renders every screen the firmware can draw and fails the build if anything overlaps or leaves the safe area.",
+    "aiUse": "I used Claude Code, Anthropic's coding agent, for most of the typing: the board is described as code (a Python schematic, a placement script and an autorouter), and the firmware and its prover are C++ with Python tooling around them. To keep that honest, I wrote the spec and the check first and had the agent work against them. Nothing shipped until it passed a gate the agent could not argue with: KiCad design rule checks at the factory's limits, an order generator that refuses to write part rotations that disagree with what I saw in the manufacturer's placement preview, and the layout prover, which tests itself against planted bugs before it reports.",
+    "humanDecisions": "I picked the look: a kit-style board meant to be seen through a clear back, with labelled parts and a picket fence of resistors. I kept OLEDs over IPS panels and chose to fight burn-in in firmware, then rejected ideas like periodic screen inversion once the measurements showed they cost more wear than they saved. I put reliability ahead of a lower part count. I swapped the expensive RTC for a cheaper variant that still keeps time through a power cut, and reverted a cheaper humidity sensor when it turned out to force a pricier assembly tier and a bigger board. When an agent's reasoning disagreed with the factory's own part preview, I went with the preview. I checked the assembled board, the case fit and the screens by hand on my desk.",
+    "limitations": "This is one clock on my desk, not a product. The prebuilt demo image in the repo predates the stopwatch, which replaced a market quotes page, so you need to build from source to get it. The full build with WiFi and over-the-air updates needs your own secrets file; the demo build has no radio at all. The acrylic back needs a laser cutter, and the board needs a PCB order plus some hand soldering. Some clock layouts still light more pixels than my 15 percent burn-in budget, which the prover tracks as known debt. The board layout also cannot keep a full clear zone around the WiFi antenna; fixing that needs a board revision that moves the module."
+  },
+  "links": {
+    "demo": null,
+    "video": null,
+    "source": "https://github.com/partypancake8/4square_production"
+  }
+}
