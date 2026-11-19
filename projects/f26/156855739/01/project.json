@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-156855739-01",
+  "ownerId": 156855739,
+  "cohort": "f26",
+  "slot": "01",
+  "title": "How Much Am I Worth?",
+  "summary": "Compare how far a salary goes across U.S. cities with an interactive cost-of-living map.",
+  "category": "Everyday tools",
+  "tags": ["Cost of living", "Data visualization", "Personal finance"],
+  "tools": ["React", "TypeScript", "Python"],
+  "cover": {"src": "cover.webp", "alt": "Map of the United States with colored markers comparing salary purchasing power across cities."},
+  "screenshots": [],
+  "story": {
+    "problem": "A salary number alone does not tell you how far your money will go in a different city. I wanted to make the tradeoffs easier to explore for people considering a move or comparing job opportunities.",
+    "built": "How Much Am I Worth? lets visitors enter a salary and origin city, then explore a map of 784 locations. It compares current market rents or overall regional prices and shows an equivalent salary for other places. The app combines public data from sources including BEA, HUD, Zillow and the Census Bureau.",
+    "aiUse": "I used AI assistance in development, including work on the expanded location dataset, market-rent comparison and related interface updates. AI helped turn changes into code; the published application itself is a data-driven calculator, not an AI valuation of a person.",
+    "humanDecisions": "I chose to present market rent and overall prices as separate lenses, because a rent comparison and a broad cost-of-living index answer different questions. I reviewed the data sources and methodology and checked location mappings and calculations while improving the application.",
+    "limitations": "The figures are estimates based on aggregate data, not personalized budgets or salary advice. Rent and overall-price datasets measure different things, cover different periods and may use different geographic boundaries. Individual housing, taxes and spending patterns can differ substantially; check the methodology and current local costs before making a decision."
+  },
+  "links": {"demo": "https://howmuchamiworth.com", "video": null, "source": null}
+}
