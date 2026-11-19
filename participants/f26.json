@@ -2,6 +2,12 @@
   "cohort": "f26",
   "participants": [
     {
+      "id": 1323862,
+      "displayName": "Marcus Darden",
+      "bio": "Instructor for EECS 498 AASE, Fall 2026.",
+      "github": "https://github.com/marcus-darden"
+    },
+    {
       "id": 119368245,
       "displayName": "Sawyer Smith",
       "bio": "",
