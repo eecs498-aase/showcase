@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-1323862-01",
+  "ownerId": 1323862,
+  "cohort": "f26",
+  "slot": "01",
+  "title": "Inbox Triage: Gmail sorted on your iPhone",
+  "summary": "An iPhone Shortcut that triages Gmail with Apple's on-device model, reports in Apple Notes, and turns your corrections into rules.",
+  "category": "Everyday tools",
+  "tags": [
+    "iPhone Shortcuts",
+    "Gmail",
+    "On-device AI"
+  ],
+  "tools": [
+    "Python",
+    "Local models"
+  ],
+  "cover": {
+    "src": "cover.webp",
+    "alt": "An illustration of an Inbox Triage report in Apple Notes on an iPhone: kept messages, short summaries, and messages it would archive or delete in a dry run, next to the project name."
+  },
+  "story": {
+    "problem": "My inbox fills with receipts, newsletters, shipping notices and sales, and the few messages that matter get buried. Cloud mail filters mean handing my mail to another service, and the iPhone Mail app's Shortcuts actions can read mail but can't archive or delete it. I wanted something that sorts the inbox twice a day, keeps the text of my mail on my phone, and gets better when I tell it it was wrong.",
+    "built": "Three iPhone Shortcuts, about 1,600 actions in all. Every morning and evening the engine lists new inbox mail through the Gmail API. Sender and keyword rules go first, then Apple's on-device model decides whether each message should be kept, archived, deleted, unsubscribed from or summarized. The results land in a short report in Apple Notes. To correct a line I type a two-letter code in front of it, like xa) for archive, and share the note back to the shortcut. It applies the fix, logs it, and a local model proposes rule changes that I review on the Mac with bin/learn before anything changes. The shortcuts aren't built by hand: a Python generator writes them as property lists and signs them, and a pytest suite checks the output against failure modes found on a real iPhone.",
+    "aiUse": "I designed it and made the decisions, and Claude Code wrote the code in one long session that I drove from my phone. It researched Apple's undocumented shortcut format from Apple's own gallery shortcuts and community notes, wrote the generator and the tests, and debugged from screenshots I sent back. Inside the product, Apple's on-device model classifies and summarizes each message, and Locally AI, a local model app, drafts rule proposals from my corrections.",
+    "humanDecisions": "Safety came first. It starts in dry run, so the report says what it would do and Gmail is untouched. Deleting and unsubscribing each need their own switch. Low confidence, starred or important mail, and any output it can't parse all mean keep. Every change adds an AutoTriage label so it can be undone, and unsubscribing only sends the standard one-click request, never following other links. Rule changes are proposals until I approve them. Every claim about how Shortcuts behaves was checked on my iPhone, and each one that broke a run became a test where possible and an entry in the lessons file.",
+    "limitations": "It runs only on an iPhone with Apple Intelligence, and generating and signing the shortcuts needs a Mac. It works only with Gmail. The on-device model is small, so it mislabels some promotions as personal mail and sometimes invents deadlines; rules and feedback fix what prompts can't. Report links can't open a message in the Gmail app, and corrections are typed because Notes can't tell Shortcuts which checklist items were ticked."
+  },
+  "links": {
+    "demo": null,
+    "video": null,
+    "source": "https://github.com/marcus-darden/inbox-triage"
+  }
+}
