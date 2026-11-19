@@ -18,16 +18,24 @@
   ],
   "cover": {
     "src": "cover.webp",
-    "alt": "An Inbox Triage dry-run report as it appears in Apple Notes on an iPhone, with sections for messages it would keep, archive and summarize, next to the project name. The messages are made up."
+    "alt": "Screenshot of an Inbox Triage dry-run report in Apple Notes: the run time, counts of what it would keep, archive, delete, unsubscribe and summarize, and how to type feedback codes."
   },
   "screenshots": [
     {
+      "src": "menu.webp",
+      "alt": "Screenshot of the InboxTriage shortcut's menu on an iPhone with five choices: Default, Kept, Custom, Apply feedback (newest notes) and Clean up old reports."
+    },
+    {
       "src": "dry-run-report.webp",
-      "alt": "A full dry-run report in Apple Notes: a line of counts, then Needs you, Would keep, Would archive, Would summarize at high and low interest, and Would unsubscribe, each message with Open in Mail and Gmail web links. Made-up messages."
+      "alt": "Screenshot of a dry-run report section in Apple Notes: made-up messages with decision, Gmail operation, rule or model, message id, Mail and Gmail links, and a summary."
+    },
+    {
+      "src": "share-sheet.webp",
+      "alt": "Screenshot of the iPhone share sheet for a demo report note, cropped to the note's title and the InboxTriage shortcut row, which applies the feedback typed in the note."
     },
     {
       "src": "feedback-and-proposals.webp",
-      "alt": "Feedback in Apple Notes: two report lines tagged xd) and xm regular work business), then the feedback-applied note listing both corrections and two rule changes proposed by a local model, waiting for approval. Made-up messages."
+      "alt": "Screenshot of the feedback-applied note: two made-up corrections applied (DELETE, SUMMARIZE moderate), then proposed rule changes from a local model, waiting for approval."
     }
   ],
   "story": {
