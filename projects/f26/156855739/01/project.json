@@ -9,7 +9,7 @@
   "category": "Everyday tools",
   "tags": ["Cost of living", "Data visualization", "Personal finance"],
   "tools": ["React", "TypeScript", "Python"],
-  "cover": {"src": "cover.webp", "alt": "Map of the United States with colored markers comparing salary purchasing power across cities."},
+  "cover": {"src": "cover.webp", "alt": "How Much am I Worth? title and purchasing power color scale beside a map of U.S. cities."},
   "screenshots": [],
   "story": {
     "problem": "A salary number alone does not tell you how far your money will go in a different city. I wanted to make the tradeoffs easier to explore for people considering a move or comparing job opportunities.",

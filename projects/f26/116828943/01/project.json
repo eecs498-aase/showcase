@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "projectId": "f26-116828943-01",
+  "ownerId": 116828943,
+  "cohort": "f26",
+  "slot": "01",
+  "title": "FitCypher: a workout app and its cloud testing pipeline",
+  "summary": "A workout tracker on iOS and Android, and the cloud test lab I built to run its group features on an iPhone simulator and an Android emulator.",
+  "category": "Everyday tools",
+  "tags": [
+    "Fitness",
+    "AI agent",
+    "Test automation"
+  ],
+  "tools": [
+    "React",
+    "TypeScript",
+    "Python",
+    "SQLite"
+  ],
+  "cover": {
+    "src": "cover.webp",
+    "alt": "The words A workout app and its test lab, with a one-line description, beside two iPhones showing the Jams tab and a Push Day workout in progress."
+  },
+  "screenshots": [
+    {
+      "src": "jams.webp",
+      "alt": "Jams, workouts with friends: an iPhone on the Jams tab listing friends' group workouts, one expanded to show its exercises. The names are lab test accounts."
+    },
+    {
+      "src": "live-logging.webp",
+      "alt": "Logging sets: an iPhone mid-workout with a checked-off set, a row of emoji to rate the effort, and a green arrow suggesting a heavier set."
+    },
+    {
+      "src": "cypher-chat.webp",
+      "alt": "Cypher, the AI coach: an iPhone with Cypher open full screen and suggested prompts such as Build me a push pull legs split."
+    },
+    {
+      "src": "cloud-lab.webp",
+      "alt": "The test lab: the same Jams screen captured by scripted tests on an iPhone simulator on the left and an Android emulator on the right."
+    }
+  ],
+  "story": {
+    "problem": "FitCypher is a workout tracker I build and publish on the App Store and Google Play. Coming into the semester it could plan and log workouts for one person, but a lot of lifting happens with other people, and the app had no way to share a workout or train with someone. Its AI coach could answer questions but could not change anything. I wanted a friends-only social layer, a faster screen for the time between sets, and a coach that can edit a plan. The harder problem was testing. I work alone with one phone, the app ships on two platforms, and a group workout only makes sense with several accounts acting at once. Checking every change by hand before a store release did not scale.",
+    "built": "The update replaces the old public community feed with a Friends tab: a feed of friends' finished workouts you can react to or save, and Jams. A Jam is a group workout. You pick one of your workouts and a window of 1 day to 1 week, friends join and do it on their own time, and when it closes everyone's results post together. Profiles have a photo, a bio and friends-only posts. The workout screen was rebuilt around checking sets off, with a floating rest timer, per-set rest times, a timer on the iPhone lock screen and Dynamic Island, and arrows suggesting heavier or lighter sets from recent performance and effort ratings. Cypher, the coach, now opens over any screen, keeps separate chats, reads your recent training and attachments, and proposes edits to workouts and programs as cards you approve. The test lab is two machines I rent from AWS only while testing. An EC2 Mac builds an unsigned release build of the iPhone app itself and runs Maestro flows on the newest iPhone simulator. An Ubuntu server with nested virtualization runs the Android emulator. One command-line tool on my laptop starts the machines, builds the app, runs a scenario and pulls the results back. A seeding script creates test accounts through the app's public API, with photos, posts, friendships and open Jams, and keeps separate accounts per platform so their Jams never collide. Each run produces a JUnit report, screenshots and recordings in a local gallery. The same lab took the store screenshots and filmed 22 narrated tutorial videos, about 17 minutes in total.",
+    "aiUse": "I built FitCypher and the lab with Claude Code, Anthropic's coding agent, which wrote most of the app, server and lab code. The agent also drove the lab: it brought machines up, ran scenarios, read the screenshots and logs, and reported what failed. For the tutorials it wrote each narration script first, then filmed the flow on the lab and cut the video to match. Inside the app, Cypher runs on Claude through Amazon Bedrock with tools that read a user's workouts and history and propose edits. Nothing changes until the user taps approve. Posts in the original community feed are screened by a model before they appear.",
+    "humanDecisions": "I made the social features friends-only and kept Jams open for days, so friends do not have to lift at the same hour. I had Cypher propose edits instead of applying them, because a coach that silently changes your plan is worse than none. People were already using the released app, so the old community feed stays running for anyone who has not updated. For the lab I chose rented machines over buying a Mac, which meant working around a 24 hour minimum on cloud Macs: testing is batched into one session per release, and the tool shuts the Mac down when the session ends. I chose seeded accounts that act like a group of friends over mocked data, so a Jam started on the iPhone can be joined from Android. I did not take the recordings at face value. The simulator recorder drops frames when nothing changes, so its timestamps drift, and tutorials are cut by matching marker screenshots instead. I watched every video before keeping it. The lab caught a rest countdown drawn twice inside the Dynamic Island on iOS 26, and confirmed the Android lock-screen timer works, which I had not been able to see on my own phone.",
+    "limitations": "This is one person's app and a lab sized for one release at a time. The lab runs simulators and emulators, so the camera, push notifications and Apple or Google sign-in still need a real phone. Some flows tap set rows by position and break when a layout shifts. A lab session costs about $20 to $30 because of the cloud Mac's 24 hour minimum. Cypher can be wrong about training advice, and the weight suggestions only see recent sets and effort ratings, not form. Cypher and the Friends tab need a connection; logging a workout does not. The app and lab source are private."
+  },
+  "links": {
+    "demo": "https://fitcypher.app",
+    "video": null,
+    "source": null
+  }
+}
